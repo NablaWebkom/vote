@@ -1,11 +1,13 @@
-var socketIO = require('socket.io');
-var app = require('./app');
+const socketIO = require('socket.io');
+const app = require('./app');
 
 app.set('port', process.env.PORT || 5861);
 
-module.exports = function(callback) {
-    var server = app.listen(app.get('port'), 'localhost', function(err) {
-        callback(err, app.get('port'));
-    });
-    app.set('io', socketIO(server));
+module.exports = callback => {
+  const hostname =
+    process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+  const server = app.listen(app.get('port'), hostname, err => {
+    callback(err, app.get('port'));
+  });
+  app.set('io', socketIO(server));
 };
