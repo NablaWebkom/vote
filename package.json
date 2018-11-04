@@ -15,12 +15,11 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "protractor": "webdriver-manager update --standalone false && NODE_ENV=protractor MONGO_URL=${MONGO_URL:-'mongodb://localhost:27017/vote-test'} protractor ./features/protractor-conf.js",
     "postinstall": "npm run build",
-    "toggle": "node ./features/toggleUsers.js"
+    "toggle": "node ./features/toggleUsers.js",
     "postinstall": "yarn build"
   },
   "prettier": {
     "singleQuote": true
->>>>>>> 55a2d3b435455eb8ba65c121e340ebef62afab16
   },
   "author": "Webkom <webkom@abakus.no>",
   "repository": {
